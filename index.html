@@ -39,6 +39,14 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 @media(max-width:900px){.g3,.g2,.steps,.cmp{grid-template-columns:1fr}}
 @media(max-width:640px){section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
 @media(max-width:480px){#offer ~ section div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}}
+.goals{margin-top:26px;padding:18px;border-radius:18px;border:1px solid var(--bd);background:var(--card);max-width:600px}
+.goals .lb{font-size:.75rem;font-weight:800;color:#60a5fa;letter-spacing:.08em;margin-bottom:12px}
+.gc{display:flex;flex-wrap:wrap;gap:8px}
+.gc span{padding:8px 14px;border-radius:99px;border:1px solid var(--bd);font-size:.82rem;font-weight:700;color:var(--mu);cursor:pointer;transition:.35s}
+.gc span.on{color:#fff;background:linear-gradient(90deg,var(--blue),var(--purple));border-color:transparent;transform:translateY(-3px) scale(1.06);box-shadow:0 10px 24px -10px rgba(99,102,241,.8)}
+.gd{margin:14px 0 0;min-height:1.6em;color:#fff;font-weight:600;font-size:.95rem;transition:opacity .25s}
+.gp{height:3px;background:var(--bd);border-radius:9px;margin-top:12px;overflow:hidden}.gp i{display:block;height:100%;width:0;background:linear-gradient(90deg,#60a5fa,#f472b6)}
+@keyframes gfill{from{width:0}to{width:100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
 
 </style></head><body>
@@ -52,6 +60,19 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <p style="font-weight:800;color:#fff">₹0 Management Fee for 7 Days</p>
 <a class="btn" href="#apply">CLAIM MY FREE 7-DAY TRIAL →</a>
 <div class="mc">No long-term contract • No management fee for 7 days • Limited onboarding capacity</div>
+<div class="goals"><div class="lb">ADS FOR EVERY GOAL</div>
+<div class="gc">
+<span data-d="Get your brand in front of the right people.">Awareness</span>
+<span data-d="Send more visitors to your website or landing page.">Traffic</span>
+<span data-d="Grow likes, comments, shares and messages.">Engagement</span>
+<span data-d="Collect qualified inquiries straight from your ads.">Leads</span>
+<span data-d="Fill your calendar with appointments.">Bookings</span>
+<span data-d="Make your phone ring with ready-to-buy customers.">Calls</span>
+<span data-d="Start chats with interested customers.">WhatsApp Inquiries</span>
+<span data-d="Turn ad clicks into orders and revenue.">Sales</span>
+<span data-d="Drive downloads from the right audience.">App Installs</span>
+<span data-d="Bring nearby customers through your door.">Store Visits</span></div>
+<p class="gd" id="gd"></p><div class="gp"><i></i></div></div>
 <p class="note" style="margin-top:22px;max-width:460px">Built for businesses that are ready to generate more qualified leads, inquiries, bookings, or sales.</p></div></header>
 
 <section id="value"><div class="w"><div class="head rv"><h2>Here's What You Get for ₹0</h2></div>
@@ -154,6 +175,11 @@ if(!ok)return;
 f.style.display='none';document.getElementById('thanks').classList.add('on');
 // Analytics placeholders: gtag('event','generate_lead'); fbq('track','Lead');
 };
+(function(){const chips=[...document.querySelectorAll('.gc span')],d=document.getElementById('gd'),bar=document.querySelector('.gp i');if(!chips.length)return;let i=0;
+function show(n){chips.forEach(c=>c.classList.remove('on'));const c=chips[n];c.classList.add('on');d.style.opacity=0;setTimeout(()=>{d.textContent=c.dataset.d;d.style.opacity=1},150);bar.style.animation='none';void bar.offsetWidth;bar.style.animation='gfill 2.4s linear'}
+chips.forEach((c,n)=>c.onclick=()=>{i=n;show(n)});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){chips[0].classList.add('on');d.textContent=chips[0].dataset.d;return}
+show(0);setInterval(()=>{i=(i+1)%chips.length;show(i)},2400)})();
 if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const st=document.createElement('style');
 st.textContent='.cd,.cr{position:fixed;top:0;left:0;pointer-events:none;z-index:999;border-radius:50%;opacity:0;transition:opacity .25s}.cd{width:8px;height:8px;margin:-4px 0 0 -4px;background:#60a5fa}.cr{width:36px;height:36px;margin:-18px 0 0 -18px;border:1.5px solid rgba(168,85,247,.8);transition:opacity .25s,width .2s,height .2s,margin .2s,background .2s}.cr.h{width:60px;height:60px;margin:-30px 0 0 -30px;background:rgba(139,92,246,.15)}.cr.d{width:26px;height:26px;margin:-13px 0 0 -13px}';
