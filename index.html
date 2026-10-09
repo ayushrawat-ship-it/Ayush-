@@ -154,12 +154,14 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <div class="c2"><div><input name="name" placeholder="Full Name" required><span class="err">Please enter your name.</span></div><div><input name="biz" placeholder="Business Name" required><span class="err">Please enter your business name.</span></div></div>
 <div class="c2"><div><input name="email" type="email" placeholder="Email" required><span class="err">Please enter a valid email.</span></div><div><input name="phone" placeholder="Phone / WhatsApp" required><span class="err">Please enter a phone number.</span></div></div>
 <input name="site" placeholder="Website">
-<select name="type" required><option value="">Business Type</option><option>Local business</option><option>E-commerce</option><option>Coach/Consultant</option><option>Clinic/Salon</option><option>Restaurant</option><option>Real estate</option><option>Service provider</option><option>Other</option></select>
+<div><select name="type" required><option value="">Business Type</option><option>Local business</option><option>E-commerce</option><option>Coach/Consultant</option><option>Clinic/Salon</option><option>Restaurant</option><option>Real estate</option><option>Service provider</option><option>Other</option></select><span class="err">Please choose your business type.</span></div>
 <label style="font-size:.85rem;color:#a3b4b1">What do you want more of?</label>
 <div class="rowc">
 <label><input type="radio" name="want" value="Leads"> Leads</label><label><input type="radio" name="want" value="Sales"> Sales</label><label><input type="radio" name="want" value="Bookings"> Bookings</label><label><input type="radio" name="want" value="Calls"> Calls</label><label><input type="radio" name="want" value="WhatsApp"> WhatsApp inquiries</label><label><input type="radio" name="want" value="Other"> Other</label></div>
 <input name="budget" placeholder="Approximate monthly advertising budget">
 <textarea name="about" rows="4" placeholder="Tell us briefly about your business"></textarea>
+<input name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+<p class="err" id="ferr" role="alert"></p>
 <button class="btn" type="submit">CHECK MY ELIGIBILITY →</button>
 <p style="font-size:.72rem">We only use your details to review your application. No spam.</p>
 </form>
@@ -172,11 +174,19 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <script>
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 const stk=document.getElementById('stk');addEventListener('scroll',()=>{stk.style.display=innerWidth<=640&&scrollY>400?'block':'none'});
+// Paste your Google Apps Script web app URL between the quotes (see form-to-sheet.gs).
+const SHEET_URL='';
 const f=document.getElementById('f');
 f.onsubmit=e=>{e.preventDefault();let ok=true;
 f.querySelectorAll('[required]').forEach(el=>{const err=el.closest('div')?.querySelector('.err');let bad=!el.value.trim();if(el.type==='email')bad=bad||!/^\S+@\S+\.\S+$/.test(el.value);if(err)err.classList.toggle('on',bad);if(bad)ok=false});
 if(!ok)return;
+if(!SHEET_URL){const er=document.getElementById('ferr');er.textContent='The form is not connected yet.';er.classList.add('on');return}
+const btn=f.querySelector('button[type=submit]'),ferr=document.getElementById('ferr'),label=btn.textContent;
+btn.disabled=true;btn.textContent='SENDING…';ferr.classList.remove('on');
+const d=new URLSearchParams(new FormData(f));
+fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
 f.style.display='none';document.getElementById('thanks').classList.add('on');
+}).catch(()=>{btn.disabled=false;btn.textContent=label;ferr.textContent='Sorry, something went wrong. Please check your connection and try again.';ferr.classList.add('on')});
 // Analytics placeholders: gtag('event','generate_lead'); fbq('track','Lead');
 };
 (function(){const ul=document.getElementById('gl');if(!ul)return;const L=ul.children;L[1].classList.add('on');
