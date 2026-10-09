@@ -39,41 +39,45 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 @media(max-width:900px){.g3,.g2,.steps,.cmp{grid-template-columns:1fr}}
 @media(max-width:640px){section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
 @media(max-width:480px){#offer ~ section div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}}
-.goals{margin-top:26px;padding:18px;border-radius:18px;border:1px solid var(--bd);background:var(--card);max-width:600px}
-.goals .lb{font-size:.75rem;font-weight:800;color:#60a5fa;letter-spacing:.08em;margin-bottom:12px}
-.gc{display:flex;flex-wrap:wrap;gap:8px}
-.gc span{padding:8px 14px;border-radius:99px;border:1px solid var(--bd);font-size:.82rem;font-weight:700;color:var(--mu);cursor:pointer;transition:.35s}
-.gc span.on{color:#fff;background:linear-gradient(90deg,var(--blue),var(--purple));border-color:transparent;transform:translateY(-3px) scale(1.06);box-shadow:0 10px 24px -10px rgba(99,102,241,.8)}
-.gd{margin:14px 0 0;min-height:1.6em;color:#fff;font-weight:600;font-size:.95rem;transition:opacity .25s}
-.gp{height:3px;background:var(--bd);border-radius:9px;margin-top:12px;overflow:hidden}.gp i{display:block;height:100%;width:0;background:linear-gradient(90deg,#60a5fa,#f472b6)}
-@keyframes gfill{from{width:0}to{width:100%}}
+.hg{max-width:1120px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.gpn{border:1px solid var(--bd);background:var(--card);border-radius:22px;padding:20px;backdrop-filter:blur(10px)}
+.gpn .lb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:800;color:#60a5fa;letter-spacing:.08em;margin-bottom:14px}
+.gpn .lb i{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pl 1.4s infinite}
+@keyframes pl{50%{opacity:.3}}
+.gw{height:286px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
+.gl{list-style:none;margin:0;padding:0}
+.gl li{height:64px;margin-bottom:10px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:16px;border:1px solid var(--bd);background:rgba(255,255,255,.03);transition:background .4s,border-color .4s,transform .4s}
+.gl li div{min-width:0}.gl li b{display:block;font-size:.95rem}
+.gl li small{display:block;color:var(--mu);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gl .ic{font-size:1.4rem;width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.06);flex:none}
+.gl li.on{background:linear-gradient(90deg,rgba(59,130,246,.25),rgba(139,92,246,.25));border-color:rgba(139,92,246,.6);transform:scale(1.03)}
+@media(max-width:900px){.hg{grid-template-columns:1fr;gap:32px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
 
 </style></head><body>
 <!-- GA/Meta Pixel placeholders: insert gtag('config','G-XXXX') and fbq('init','XXXX') here -->
 <nav><div class="w"><span class="logo">[AGENCY NAME]</span><a class="btn" style="padding:9px 18px" href="#apply">Claim My Trial →</a></div></nav>
 
-<header class="hero" id="home"><div class="w" style="max-width:760px">
+<header class="hero" id="home"><div class="w hg"><div class="hl">
 <span class="badge">🔥 LIMITED FREE TRIAL FOR SELECT BUSINESSES</span>
 <h1 style="margin-top:18px">Get 1 Week of <span class="grad">Meta Ads Management</span> FREE.</h1>
 <p style="font-size:1.05rem">We'll launch, manage, monitor, and optimize your Meta ad campaign for 7 days — so you can experience our process before committing to a longer engagement.</p>
 <p style="font-weight:800;color:#fff">₹0 Management Fee for 7 Days</p>
 <a class="btn" href="#apply">CLAIM MY FREE 7-DAY TRIAL →</a>
 <div class="mc">No long-term contract • No management fee for 7 days • Limited onboarding capacity</div>
-<div class="goals"><div class="lb">ADS FOR EVERY GOAL</div>
-<div class="gc">
-<span data-d="Get your brand in front of the right people.">Awareness</span>
-<span data-d="Send more visitors to your website or landing page.">Traffic</span>
-<span data-d="Grow likes, comments, shares and messages.">Engagement</span>
-<span data-d="Collect qualified inquiries straight from your ads.">Leads</span>
-<span data-d="Fill your calendar with appointments.">Bookings</span>
-<span data-d="Make your phone ring with ready-to-buy customers.">Calls</span>
-<span data-d="Start chats with interested customers.">WhatsApp Inquiries</span>
-<span data-d="Turn ad clicks into orders and revenue.">Sales</span>
-<span data-d="Drive downloads from the right audience.">App Installs</span>
-<span data-d="Bring nearby customers through your door.">Store Visits</span></div>
-<p class="gd" id="gd"></p><div class="gp"><i></i></div></div>
-<p class="note" style="margin-top:22px;max-width:460px">Built for businesses that are ready to generate more qualified leads, inquiries, bookings, or sales.</p></div></header>
+<p class="note" style="margin-top:22px;max-width:460px">Built for businesses that are ready to generate more qualified leads, inquiries, bookings, or sales.</p></div>
+<aside class="gpn"><div class="lb"><i></i>ADS FOR EVERY GOAL</div><div class="gw"><ul class="gl" id="gl">
+<li><span class="ic">📣</span><div><b>Awareness</b><small>Get your brand in front of the right people</small></div></li>
+<li><span class="ic">🌐</span><div><b>Traffic</b><small>Send more visitors to your website</small></div></li>
+<li><span class="ic">💬</span><div><b>Engagement</b><small>Grow likes, comments, shares and messages</small></div></li>
+<li><span class="ic">🎯</span><div><b>Leads</b><small>Collect qualified inquiries from your ads</small></div></li>
+<li><span class="ic">📅</span><div><b>Bookings</b><small>Fill your calendar with appointments</small></div></li>
+<li><span class="ic">📞</span><div><b>Calls</b><small>Make your phone ring with ready buyers</small></div></li>
+<li><span class="ic">💚</span><div><b>WhatsApp Inquiries</b><small>Start chats with interested customers</small></div></li>
+<li><span class="ic">🛒</span><div><b>Sales</b><small>Turn ad clicks into orders and revenue</small></div></li>
+<li><span class="ic">📲</span><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
+<li><span class="ic">📍</span><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
+</ul></div></aside></div></header>
 
 <section id="value"><div class="w"><div class="head rv"><h2>Here's What You Get for ₹0</h2></div>
 <div class="g3">
@@ -175,11 +179,10 @@ if(!ok)return;
 f.style.display='none';document.getElementById('thanks').classList.add('on');
 // Analytics placeholders: gtag('event','generate_lead'); fbq('track','Lead');
 };
-(function(){const chips=[...document.querySelectorAll('.gc span')],d=document.getElementById('gd'),bar=document.querySelector('.gp i');if(!chips.length)return;let i=0;
-function show(n){chips.forEach(c=>c.classList.remove('on'));const c=chips[n];c.classList.add('on');d.style.opacity=0;setTimeout(()=>{d.textContent=c.dataset.d;d.style.opacity=1},150);bar.style.animation='none';void bar.offsetWidth;bar.style.animation='gfill 2.4s linear'}
-chips.forEach((c,n)=>c.onclick=()=>{i=n;show(n)});
-if(matchMedia('(prefers-reduced-motion:reduce)').matches){chips[0].classList.add('on');d.textContent=chips[0].dataset.d;return}
-show(0);setInterval(()=>{i=(i+1)%chips.length;show(i)},2400)})();
+(function(){const ul=document.getElementById('gl');if(!ul)return;const L=ul.children;L[1].classList.add('on');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+setInterval(()=>{L[1].classList.remove('on');L[2].classList.add('on');ul.style.transition='transform .5s ease';ul.style.transform='translateY(-74px)';
+setTimeout(()=>{ul.style.transition='none';ul.style.transform='none';ul.appendChild(L[0])},520)},1400)})();
 if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const st=document.createElement('style');
 st.textContent='.cd,.cr{position:fixed;top:0;left:0;pointer-events:none;z-index:999;border-radius:50%;opacity:0;transition:opacity .25s}.cd{width:8px;height:8px;margin:-4px 0 0 -4px;background:#60a5fa}.cr{width:36px;height:36px;margin:-18px 0 0 -18px;border:1.5px solid rgba(168,85,247,.8);transition:opacity .25s,width .2s,height .2s,margin .2s,background .2s}.cr.h{width:60px;height:60px;margin:-30px 0 0 -30px;background:rgba(139,92,246,.15)}.cr.d{width:26px;height:26px;margin:-13px 0 0 -13px}';
