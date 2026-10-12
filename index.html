@@ -32,6 +32,7 @@ form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;bo
 .c2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rowc{display:flex;flex-wrap:wrap;gap:8px}.rowc label{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;border:1px solid var(--bd);border-radius:99px;padding:8px 14px;cursor:pointer;transition:background .2s,border-color .2s}.rowc input{width:auto;margin:0;padding:0;accent-color:var(--blue)}.rowc label:has(input:checked){border-color:var(--blue);background:rgba(33,203,168,.14)}.rowc label:has(input:focus-visible){outline:2px solid var(--blue)}
 .err{color:#f87171;font-size:.78rem;display:none}.err.on{display:block}
 #thanks{display:none;text-align:center;padding:40px 10px}#thanks.on{display:block}
+.btn.wa{background:#25d366;color:#04201a;box-shadow:0 10px 30px -10px rgba(37,211,102,.6);text-decoration:none}
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0));background:rgba(6,16,19,.9);backdrop-filter:blur(10px);border-top:1px solid var(--bd);display:none}
 .sticky a{display:block;text-align:center}
 footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
@@ -168,7 +169,9 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <button class="btn" type="submit">CHECK MY ELIGIBILITY →</button>
 <p style="font-size:.72rem">We only use your details to review your application. No spam.</p>
 </form>
-<div id="thanks"><h2 style="color:#21cba8">Application received.</h2><p>We'll review your business and contact you with the next steps.</p></div>
+<div id="thanks"><h2 style="color:#21cba8">Application received.</h2><p>We'll review your business and contact you with the next steps.</p>
+<p id="wan" style="display:none;color:#fff;font-weight:700;margin-top:22px">Want a faster reply? Message us on WhatsApp.</p>
+<a id="wa" class="btn wa" href="#" target="_blank" rel="noopener" style="display:none">💬 CHAT WITH US ON WHATSAPP</a></div>
 </div></section>
 
 <footer><div class="w"><img class="flogo" src="logo.png" alt="Ayrise Scale" width="670" height="362"><p>Ayrise Scale — This offer is provided independently by our agency and is not sponsored, endorsed, or administered by Meta.</p><p>© 2026 Ayrise Scale. All rights reserved.</p></div></footer>
@@ -178,6 +181,8 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 const stk=document.getElementById('stk');addEventListener('scroll',()=>{stk.style.display=innerWidth<=640&&scrollY>400?'block':'none'});
 // Paste your Google Apps Script web app URL between the quotes (see form-to-sheet.gs).
+// Your WhatsApp number with country code, digits only (for example 919876543210). Leave empty to hide the WhatsApp button.
+const WA_NUMBER='';
 const SHEET_URL='https://script.google.com/macros/s/AKfycbz8I80wTSjXutMh0F3iuGpkSex6ExsKKXQd5JNC6QxkC24AyhGbfOsp7PqFaGANOL8/exec';
 const f=document.getElementById('f');
 f.onsubmit=e=>{e.preventDefault();let ok=true;
@@ -189,6 +194,9 @@ btn.disabled=true;btn.textContent='SENDING…';ferr.classList.remove('on');
 const d=new URLSearchParams(new FormData(f));
 fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
 f.style.display='none';document.getElementById('thanks').classList.add('on');
+const num=String(WA_NUMBER).replace(/\D/g,'');if(num){const who=(d.get('name')||'').trim(),biz=(d.get('biz')||'').trim(),a=document.getElementById('wa');
+a.href='https://wa.me/'+num+'?text='+encodeURIComponent('Hi Ayrise Scale, I am '+who+(biz?' from '+biz:'')+'. I just applied for the free 7-day Meta Ads trial.');
+a.style.display='inline-block';document.getElementById('wan').style.display='block'}
 }).catch(()=>{btn.disabled=false;btn.textContent=label;ferr.textContent='Sorry, something went wrong. Please check your connection and try again.';ferr.classList.add('on')});
 // Analytics placeholders: gtag('event','generate_lead'); fbq('track','Lead');
 };
