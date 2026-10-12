@@ -46,8 +46,8 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 @keyframes pl{50%{opacity:.3}}
 .gw{height:286px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;-ms-overflow-style:none;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
 .gw::-webkit-scrollbar{display:none}
-.gl{list-style:none;margin:0;padding:0;position:relative}
-.gl li{height:64px;margin-bottom:10px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:16px;border:1px solid var(--bd);background:rgba(255,255,255,.03);transition:background .4s,border-color .4s}
+.gl{list-style:none;margin:0;padding:0;position:relative;will-change:transform}
+.gl li{height:64px;margin-bottom:10px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:16px;border:1px solid var(--bd);background:rgba(255,255,255,.03);transition:background .7s ease,border-color .7s ease}
 .gl li div{min-width:0}.gl li b{display:block;font-size:.95rem}
 .gl li small{display:block;color:var(--mu);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gl .ic{font-size:1.4rem;width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.06);flex:none}
@@ -185,22 +185,29 @@ f.style.display='none';document.getElementById('thanks').classList.add('on');
 (function(){const el=document.querySelector('.gw'),ul=document.getElementById('gl');if(!el||!ul)return;
 const items=[...ul.children],N=items.length;
 for(let k=0;k<2;k++)items.forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');ul.appendChild(c)});
-const all=[...ul.children],mq=matchMedia('(max-width:900px),(pointer:coarse)'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-let horiz,P,step,pos,last=0,hover=false,touched=0,hl=-1,t0=0;
-function setup(){horiz=mq.matches;const o=x=>horiz?x.offsetLeft:x.offsetTop;P=o(all[N])-o(all[0]);step=P/N;el.scrollTop=el.scrollLeft=0;pos=P;put(pos)}
-function put(v){last=v;if(horiz)el.scrollLeft=v;else el.scrollTop=v}
+const all=[...ul.children],mq=matchMedia('(max-width:900px),(pointer:coarse)'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,SPEED=42;
+let horiz,P,step,pos,last=0,hover=false,touched=-9e3,hl=-1,t0=0,v=0,vis=true;
+function setup(){horiz=mq.matches;const o=x=>horiz?x.offsetLeft:x.offsetTop;P=o(all[N])-o(all[0]);step=P/N;el.scrollTop=el.scrollLeft=0;pos=P;v=0;ul.style.transform='';put(pos)}
+function put(x){last=x;if(horiz)el.scrollLeft=x;else el.scrollTop=x}
 function get(){return horiz?el.scrollLeft:el.scrollTop}
-function light(){const c=get()+(horiz?el.clientWidth:el.clientHeight)/2,i=Math.floor(c/step)%N;if(i===hl)return;hl=i;all.forEach((li,k)=>li.classList.toggle('on',k%N===i))}
+function light(x){const c=x+(horiz?el.clientWidth:el.clientHeight)/2,i=Math.floor(c/step)%N;if(i===hl)return;hl=i;all.forEach((li,k)=>li.classList.toggle('on',k%N===i))}
 el.addEventListener('scroll',()=>{if(Math.abs(get()-last)>2)touched=performance.now()});
 ['wheel','touchstart','pointerdown'].forEach(e=>el.addEventListener(e,()=>{touched=performance.now()},{passive:true}));
 el.addEventListener('mouseenter',()=>hover=true);el.addEventListener('mouseleave',()=>{hover=false;touched=performance.now()-900});
+if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(el);
 mq.addEventListener?mq.addEventListener('change',setup):mq.addListener(setup);
 function frame(t){const dt=Math.min(.05,(t-t0)/1000||0);t0=t;
-const idle=!hover&&t-touched>1600;
-pos=idle&&!reduce?pos+45*dt:get();
+const user=t-touched<=1600;
+if(user){pos=get();v=0;ul.style.transform=''}
+else{
+v+=((hover||reduce||!vis?0:SPEED)-v)*Math.min(1,dt*4);
+pos+=v*dt;
 if(pos>=2*P)pos-=P;else if(pos<P)pos+=P;
-if(Math.abs(pos-get())>.4||idle)put(pos);
-light();requestAnimationFrame(frame)}
+const b=Math.floor(pos),fr=pos-b;
+if(b!==Math.round(get()))put(b);
+ul.style.transform=horiz?'translate3d('+(-fr)+'px,0,0)':'translate3d(0,'+(-fr)+'px,0)'}
+if(user&&(get()>=2*P||get()<P)){pos=get();pos=pos>=2*P?pos-P:pos+P;put(pos)}
+light(user?get():pos);requestAnimationFrame(frame)}
 setup();requestAnimationFrame(t=>{t0=t;frame(t)});
 addEventListener('resize',()=>{if(mq.matches!==horiz)setup()});
 })();
