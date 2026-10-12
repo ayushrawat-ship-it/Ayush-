@@ -20,16 +20,16 @@ nav .w{display:flex;align-items:center;justify-content:space-between;height:74px
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .chk{list-style:none;padding:0;margin:0}.chk li{padding:9px 0;font-weight:600;border-bottom:1px solid var(--bd)}.chk li:before{content:"✓";color:#21cba8;margin-right:10px;font-weight:800}
 .x li:before{content:"✕";color:#f87171}
-.head{max-width:640px;margin-bottom:36px}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.cmp div{border-radius:16px;padding:18px;border:1px solid var(--bd)}
+.head{max-width:820px;margin:0 auto 36px;text-align:center}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.cmp>div{border-radius:16px;padding:18px;border:1px solid var(--bd)}
 .tag{font-size:.75rem;font-weight:800;color:#21cba8}
 .big{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;text-align:center;background:linear-gradient(90deg,#21cba8,#d9d9d9);-webkit-background-clip:text;background-clip:text;color:transparent;margin:20px 0}
 .note{background:rgba(255,255,255,.04);border-left:3px solid var(--blue);padding:12px 16px;border-radius:10px;font-size:.85rem}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.st .n{width:40px;height:40px;border-radius:50%;background:linear-gradient(90deg,var(--blue),var(--purple));display:grid;place-items:center;font-weight:800;margin-bottom:10px;color:#04201a}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}.st .n{margin-left:auto;margin-right:auto;width:40px;height:40px;border-radius:50%;background:linear-gradient(90deg,var(--blue),var(--purple));display:grid;place-items:center;font-weight:800;margin-bottom:10px;color:#04201a}
 .stat{display:flex;gap:8px;align-items:center;font-weight:700;color:#21cba8;font-size:.9rem}.stat i{width:9px;height:9px;border-radius:50%;background:#21cba8}
 details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 18px;margin-bottom:10px}summary{cursor:pointer;font-weight:700}details p{margin:10px 0 0}
 form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--bd);background:#0b191d;color:var(--tx);font:inherit}input:focus,select:focus,textarea:focus{outline:2px solid var(--blue)}
-.c2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rowc{display:flex;flex-wrap:wrap;gap:8px}.rowc label{font-size:.82rem;border:1px solid var(--bd);border-radius:99px;padding:7px 13px;cursor:pointer}
+.c2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rowc{display:flex;flex-wrap:wrap;gap:8px}.rowc label{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;border:1px solid var(--bd);border-radius:99px;padding:8px 14px;cursor:pointer;transition:background .2s,border-color .2s}.rowc input{width:auto;margin:0;padding:0;accent-color:var(--blue)}.rowc label:has(input:checked){border-color:var(--blue);background:rgba(33,203,168,.14)}.rowc label:has(input:focus-visible){outline:2px solid var(--blue)}
 .err{color:#f87171;font-size:.78rem;display:none}.err.on{display:block}
 #thanks{display:none;text-align:center;padding:40px 10px}#thanks.on{display:block}
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0));background:rgba(6,16,19,.9);backdrop-filter:blur(10px);border-top:1px solid var(--bd);display:none}
@@ -37,8 +37,8 @@ form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;bo
 footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .rv{opacity:0;transform:translateY(16px);transition:.6s}.rv.in{opacity:1;transform:none}
 @media(max-width:900px){.g3,.g2,.steps,.cmp{grid-template-columns:1fr}}
-@media(max-width:640px){nav .w{height:64px}.logo img{height:46px}nav .btn{width:auto;padding:9px 14px!important;font-size:.82rem}section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
-@media(max-width:480px){#offer ~ section div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}}
+@media(max-width:640px){.card{padding:22px!important}nav .w{height:64px}.logo img{height:46px}nav .btn{width:auto;padding:9px 14px!important;font-size:.82rem}section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
+@media(max-width:480px){#offer ~ section div[style*="repeat(3,minmax(0,1fr))"]{grid-template-columns:1fr!important}}
 .hg>*{min-width:0}.hg{max-width:1120px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .gpn{border:1px solid var(--bd);background:var(--card);border-radius:22px;padding:20px;backdrop-filter:blur(10px)}
 .gpn .lb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:800;color:#21cba8;letter-spacing:.08em;margin-bottom:14px}
@@ -110,7 +110,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 
 <section><div class="w"><div class="card rv" style="text-align:center;padding:44px 24px">
 <h2>Try Our Process Before You Commit.</h2>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;justify-items:stretch;gap:16px;margin:18px auto;max-width:640px">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;justify-items:stretch;gap:16px;margin:18px auto;max-width:880px">
 <div style="border:1px solid var(--bd);border-radius:14px;padding:16px 10px;display:flex;align-items:center;justify-content:center;min-height:84px"><span class="big" style="margin:0;font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2">7 DAYS</span></div>
 <div style="border:1px solid var(--bd);border-radius:14px;padding:16px 10px;display:flex;align-items:center;justify-content:center;min-height:84px"><span class="big" style="margin:0;font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2">₹0 FEE</span></div>
 <div style="border:1px solid var(--bd);border-radius:14px;padding:16px 10px;display:flex;align-items:center;justify-content:center;min-height:84px"><span class="big" style="margin:0;font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2">NO COMMITMENT</span></div></div>
