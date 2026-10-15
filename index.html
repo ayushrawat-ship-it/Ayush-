@@ -37,6 +37,26 @@ form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;bo
 .sticky a{display:block;text-align:center}
 footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .rv{opacity:0;transform:translateY(16px);transition:.6s}.rv.in{opacity:1;transform:none}
+/* Meta Ads results / case studies */
+.cs{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;margin-bottom:20px;padding:22px}
+.cs:nth-of-type(even){grid-template-columns:1fr 1.25fr}.cs:nth-of-type(even) .cs-shot{order:2}
+.cs-shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--bd);background:var(--bg2)}
+.cs-shot img{display:block;width:100%;height:auto}
+.cs-rib{position:absolute;top:10px;right:10px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.2)}
+.mock{background:#fff;color:#1c1e21;font-size:.7rem;line-height:1.4}
+.mock .bar{display:flex;gap:8px;align-items:center;padding:9px 12px;background:#f0f2f5;border-bottom:1px solid #dadde1;font-weight:700}
+.mock .bar i{width:8px;height:8px;border-radius:50%;background:#42b72a}.mock .bar span{margin-left:auto;font-weight:500;color:#65676b}
+.mock table{width:100%;border-collapse:collapse}.mock th{background:#f7f8fa;color:#65676b;font-weight:600;text-align:right;padding:7px 10px;border-bottom:1px solid #dadde1}
+.mock td{text-align:right;padding:8px 10px;border-bottom:1px solid #eceef1}.mock th:first-child,.mock td:first-child{text-align:left}
+.mock tr.tot td{font-weight:700;background:#f7f8fa;border-bottom:0}.mock .good{color:#0a7d4f;font-weight:700}
+.mock .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}.mock .kp div{border:1px solid #dadde1;border-radius:8px;padding:8px 10px}
+.mock .kp b{display:block;font-size:1.05rem}.mock .kp small{color:#65676b}
+.cs-cat{font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.cs-info h3{margin:6px 0 14px;font-size:1.4rem}.cs-info dl{margin:0 0 18px;display:grid;gap:10px}
+.cs-info dt{font-size:.72rem;color:var(--mu);text-transform:uppercase;letter-spacing:.05em}.cs-info dd{margin:2px 0 0;font-size:.92rem;color:#dfe6e8}
+.cs-st{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cs-st div{border-left:2px solid var(--blue);padding-left:10px}
+.cs-st strong{display:block;font-size:1.4rem;color:var(--blue);line-height:1.1}.cs-st span{font-size:.78rem;color:var(--mu)}
+@media(max-width:900px){.cs,.cs:nth-of-type(even){grid-template-columns:1fr}.cs:nth-of-type(even) .cs-shot{order:0}}
 @media(max-width:900px){.g3,.g2,.steps,.cmp{grid-template-columns:1fr}}
 @media(max-width:640px){.card{padding:22px!important}nav .w{height:64px}.logo img{height:46px}nav .btn{width:auto;padding:9px 14px!important;font-size:.82rem}section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
 @media(max-width:480px){#offer ~ section div[style*="repeat(3,minmax(0,1fr))"]{grid-template-columns:1fr!important}}
@@ -118,12 +138,20 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <p style="max-width:520px;margin:0 auto 20px">You don't have to take our word for it. Experience the process first. At the end of the trial, you can review the campaign data and decide whether continuing is right for your business.</p>
 <a class="btn" href="#apply">START MY FREE TRIAL →</a></div></div></section>
 
-<section class="alt"><div class="w"><div class="head rv"><h2>Businesses Don't Need More Marketing Promises. They Need Better Execution.</h2></div>
-<div class="g3">
-<div class="card rv"><p>[CLIENT TESTIMONIAL GOES HERE]</p><p style="color:#fff;font-weight:700;margin:0">[CLIENT NAME + BUSINESS]</p></div>
-<div class="card rv"><p>[CLIENT TESTIMONIAL GOES HERE]</p><p style="color:#fff;font-weight:700;margin:0">[CLIENT NAME + BUSINESS]</p></div>
-<div class="card rv"><p>[CLIENT TESTIMONIAL GOES HERE]</p><p style="color:#fff;font-weight:700;margin:0">[CLIENT NAME + BUSINESS]</p></div></div>
-<div class="card rv" style="margin-top:20px"><h3>Results</h3><p>Verified case studies will be added here as they become available.</p></div></div></section>
+<section class="alt" id="results"><div class="w"><div class="head rv"><h2>Businesses Don't Need More Marketing Promises. They Need Better Execution.</h2><p>Meta Ads results and case studies from campaigns we manage.</p></div>
+<article class="card cs rv"><div class="cs-shot"><span class="cs-rib">Sample screenshot</span>
+<!-- Replace the .mock div with: <img src="case-1.png" alt="Meta Ads results for [Client name]"> -->
+<div class="mock"><div class="bar"><i></i> Ads reporting <span>Last 30 days</span></div><div class="kp"><div><small>Amount spent</small><b>₹1,20,000</b></div><div><small>Purchases</small><b>412</b></div><div><small>ROAS</small><b class="good">4.1x</b></div></div><table><tr><th>Campaign</th><th>Results</th><th>Cost / result</th><th>Spend</th><th>ROAS</th></tr><tr><td>Sales – Prospecting</td><td>268</td><td>₹318</td><td>₹85,200</td><td class="good">3.8</td></tr><tr><td>Sales – Retargeting</td><td>144</td><td>₹241</td><td>₹34,800</td><td class="good">5.2</td></tr><tr class="tot"><td>Total</td><td>412</td><td>₹291</td><td>₹1,20,000</td><td class="good">4.1</td></tr></table></div></div>
+<div class="cs-info"><span class="cs-cat">E-commerce · Fashion</span><h3>Clothing Brand: 4.1x ROAS</h3><dl><div><dt>Challenge</dt><dd>High ad spend with inconsistent sales and a rising cost per purchase.</dd></div><div><dt>What we did</dt><dd>Restructured campaigns, tested new creatives weekly and added a retargeting layer.</dd></div></dl><div class="cs-st"><div><strong>4.1x</strong><span>ROAS</span></div><div><strong>-34%</strong><span>Cost per purchase</span></div><div><strong>412</strong><span>Purchases / month</span></div></div></div></article>
+<article class="card cs rv"><div class="cs-shot"><span class="cs-rib">Sample screenshot</span>
+<!-- Replace the .mock div with: <img src="case-2.png" alt="Meta Ads results for [Client name]"> -->
+<div class="mock"><div class="bar"><i></i> Ads reporting <span>Last 30 days</span></div><div class="kp"><div><small>Amount spent</small><b>₹60,000</b></div><div><small>Leads</small><b>385</b></div><div><small>Cost / lead</small><b class="good">₹156</b></div></div><table><tr><th>Campaign</th><th>Results</th><th>Cost / result</th><th>Spend</th><th>CTR</th></tr><tr><td>Leads – Instant Form</td><td>241</td><td>₹148</td><td>₹35,700</td><td>2.9%</td></tr><tr><td>Leads – Website</td><td>144</td><td>₹169</td><td>₹24,300</td><td>2.3%</td></tr><tr class="tot"><td>Total</td><td>385</td><td>₹156</td><td>₹60,000</td><td>2.6%</td></tr></table></div></div>
+<div class="cs-info"><span class="cs-cat">Lead Generation · Real Estate</span><h3>Property Consultant: 385 Leads</h3><dl><div><dt>Challenge</dt><dd>Plenty of enquiries but many low-quality leads that never picked up calls.</dd></div><div><dt>What we did</dt><dd>Sharper audience targeting, qualifying questions in the lead form and a faster follow-up flow.</dd></div></dl><div class="cs-st"><div><strong>385</strong><span>Leads / month</span></div><div><strong>₹156</strong><span>Cost per lead</span></div><div><strong>+62%</strong><span>Qualified rate</span></div></div></div></article>
+<article class="card cs rv"><div class="cs-shot"><span class="cs-rib">Sample screenshot</span>
+<!-- Replace the .mock div with: <img src="case-3.png" alt="Meta Ads results for [Client name]"> -->
+<div class="mock"><div class="bar"><i></i> Ads reporting <span>Last 30 days</span></div><div class="kp"><div><small>Amount spent</small><b>₹45,000</b></div><div><small>Conversations</small><b>1,126</b></div><div><small>Cost / conv.</small><b class="good">₹40</b></div></div><table><tr><th>Campaign</th><th>Results</th><th>Cost / result</th><th>Spend</th><th>Reach</th></tr><tr><td>Messages – WhatsApp</td><td>804</td><td>₹38</td><td>₹30,550</td><td>1.9L</td></tr><tr><td>Messages – Lookalike</td><td>322</td><td>₹45</td><td>₹14,450</td><td>0.8L</td></tr><tr class="tot"><td>Total</td><td>1,126</td><td>₹40</td><td>₹45,000</td><td>2.7L</td></tr></table></div></div>
+<div class="cs-info"><span class="cs-cat">Local Business · Clinic</span><h3>Dental Clinic: 1,126 Enquiries</h3><dl><div><dt>Challenge</dt><dd>A new clinic needed steady appointment bookings within its local area.</dd></div><div><dt>What we did</dt><dd>Local geo-targeted message campaigns with offer creatives and WhatsApp click-to-chat.</dd></div></dl><div class="cs-st"><div><strong>1,126</strong><span>Enquiries</span></div><div><strong>₹40</strong><span>Cost per chat</span></div><div><strong>2.7L</strong><span>People reached</span></div></div></div></article>
+<p style="text-align:center;font-size:.8rem;margin-top:8px">Sample layout: replace the sample screenshots and numbers with real, verified client results before publishing.</p></div></section>
 
 <section id="how"><div class="w"><div class="head rv"><h2>How It Works</h2></div><div class="steps">
 <div class="st rv"><div class="n">01</div><h3>Apply</h3><p>Tell us about your business and advertising goal.</p></div>
