@@ -42,6 +42,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .cs:nth-of-type(even){grid-template-columns:1fr 1.25fr}.cs:nth-of-type(even) .cs-shot{order:2}
 .cs-shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--bd);background:var(--bg2)}
 .cs-shot img{display:block;width:100%;height:auto}
+.cs-shot img,.cs-shot .mock{filter:brightness(.82) contrast(1.05) saturate(.9);transition:filter .3s}.cs-shot:hover img,.cs-shot:hover .mock{filter:brightness(.95) contrast(1.05) saturate(1)}
 .cs-rib{position:absolute;top:10px;right:10px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.2)}
 .mock{background:#fff;color:#1c1e21;font-size:.7rem;line-height:1.4}
 .mock .bar{display:flex;gap:8px;align-items:center;padding:9px 12px;background:#f0f2f5;border-bottom:1px solid #dadde1;font-weight:700}
