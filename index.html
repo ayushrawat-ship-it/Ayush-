@@ -7,8 +7,8 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,Segoe UI,Manrope,sans-serif;line-height:1.6}
 h1,h2,h3{margin:0 0 .5em;letter-spacing:-.02em;line-height:1.15}h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800}h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:800}
-p{margin:0 0 1em;color:var(--mu)}a{color:inherit}.w{max-width:1120px;margin:auto;padding:0 20px}section{padding:80px 0}
-.grad{background:linear-gradient(90deg,#21cba8,#7fe3cd,#d9d9d9);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{margin:0 0 1em;color:var(--mu)}a{color:inherit;text-decoration:none}.w{max-width:1120px;margin:auto;padding:0 20px}section{padding:80px 0}
+.grad{color:#21cba8}
 .badge{display:inline-flex;gap:6px;align-items:center;padding:7px 14px;border-radius:99px;background:var(--card);border:1px solid var(--bd);font-size:.82rem;font-weight:700}
 .btn{display:inline-block;padding:15px 28px;border-radius:14px;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));color:#04201a;border:0;cursor:pointer;font-size:.95rem;box-shadow:0 10px 30px -10px rgba(33,203,168,.5);transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}.btn.o{color:var(--tx);background:transparent;border:1px solid var(--bd);box-shadow:none}
@@ -23,7 +23,7 @@ nav .w{display:flex;align-items:center;justify-content:space-between;height:74px
 .head{max-width:820px;margin:0 auto 36px;text-align:center}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.cmp>div{border-radius:16px;padding:18px;border:1px solid var(--bd)}
 .tag{font-size:.75rem;font-weight:800;color:#21cba8}
-.big{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;text-align:center;background:linear-gradient(90deg,#21cba8,#d9d9d9);-webkit-background-clip:text;background-clip:text;color:transparent;margin:20px 0}
+.big{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;text-align:center;color:#21cba8;margin:20px 0}
 .note{background:rgba(255,255,255,.04);border-left:3px solid var(--blue);padding:12px 16px;border-radius:10px;font-size:.85rem}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}.st .n{margin-left:auto;margin-right:auto;width:40px;height:40px;border-radius:50%;background:linear-gradient(90deg,var(--blue),var(--purple));display:grid;place-items:center;font-weight:800;margin-bottom:10px;color:#04201a}
 .stat{display:flex;gap:8px;align-items:center;font-weight:700;color:#21cba8;font-size:.9rem}.stat i{width:9px;height:9px;border-radius:50%;background:#21cba8}
@@ -71,7 +71,6 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .gl li{height:64px;margin-bottom:10px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:16px;border:1px solid var(--bd);background:rgba(255,255,255,.03);transition:background .7s ease,border-color .7s ease}
 .gl li div{min-width:0}.gl li b{display:block;font-size:.95rem}
 .gl li small{display:block;color:var(--mu);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gl .ic{font-size:1.4rem;width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.06);flex:none}
 .gl li.on{background:linear-gradient(90deg,rgba(33,203,168,.22),rgba(20,168,138,.22));border-color:rgba(33,203,168,.6)}
 @media(max-width:900px),(pointer:coarse){.gw{height:auto;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .gl{display:flex;gap:10px;width:max-content}.gl li{flex:0 0 280px;width:280px;min-width:0;height:76px;margin:0}.gl li small{white-space:normal;line-height:1.35}}
@@ -83,7 +82,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <nav><div class="w"><a class="logo" href="#home" aria-label="Ayrise Scale"><img src="logo.png" alt="Ayrise Scale" width="670" height="362"></a><a class="btn" style="padding:9px 18px" href="#apply">Claim My Trial →</a></div></nav>
 
 <header class="hero" id="home"><div class="w hg"><div class="hl">
-<span class="badge">🔥 LIMITED FREE TRIAL FOR SELECT BUSINESSES</span>
+<span class="badge">LIMITED FREE TRIAL FOR SELECT BUSINESSES</span>
 <h1 style="margin-top:18px">Get 1 Week of <span class="grad">Meta Ads Management</span> FREE.</h1>
 <p style="font-size:1.05rem">We'll launch, manage, monitor, and optimize your Meta ad campaign for 7 days — so you can experience our process before committing to a longer engagement.</p>
 <p style="font-weight:800;color:#fff">₹0 Management Fee for 7 Days</p>
@@ -91,16 +90,16 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <div class="mc">No long-term contract • No management fee for 7 days • Limited onboarding capacity</div>
 <p class="note" style="margin-top:22px;max-width:460px">Built for businesses that are ready to generate more qualified leads, inquiries, bookings, or sales.</p></div>
 <aside class="gpn"><div class="lb"><i></i>ADS FOR EVERY GOAL</div><div class="gw"><ul class="gl" id="gl">
-<li><span class="ic">📣</span><div><b>Awareness</b><small>Get your brand in front of the right people</small></div></li>
-<li><span class="ic">🌐</span><div><b>Traffic</b><small>Send more visitors to your website</small></div></li>
-<li><span class="ic">💬</span><div><b>Engagement</b><small>Grow likes, comments, shares and messages</small></div></li>
-<li><span class="ic">🎯</span><div><b>Leads</b><small>Collect qualified inquiries from your ads</small></div></li>
-<li><span class="ic">📅</span><div><b>Bookings</b><small>Fill your calendar with appointments</small></div></li>
-<li><span class="ic">📞</span><div><b>Calls</b><small>Make your phone ring with ready buyers</small></div></li>
-<li><span class="ic">💚</span><div><b>WhatsApp Inquiries</b><small>Start chats with interested customers</small></div></li>
-<li><span class="ic">🛒</span><div><b>Sales</b><small>Turn ad clicks into orders and revenue</small></div></li>
-<li><span class="ic">📲</span><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
-<li><span class="ic">📍</span><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
+<li><div><b>Awareness</b><small>Get your brand in front of the right people</small></div></li>
+<li><div><b>Traffic</b><small>Send more visitors to your website</small></div></li>
+<li><div><b>Engagement</b><small>Grow likes, comments, shares and messages</small></div></li>
+<li><div><b>Leads</b><small>Collect qualified inquiries from your ads</small></div></li>
+<li><div><b>Bookings</b><small>Fill your calendar with appointments</small></div></li>
+<li><div><b>Calls</b><small>Make your phone ring with ready buyers</small></div></li>
+<li><div><b>WhatsApp Inquiries</b><small>Start chats with interested customers</small></div></li>
+<li><div><b>Sales</b><small>Turn ad clicks into orders and revenue</small></div></li>
+<li><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
+<li><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
 </ul></div></aside></div></header>
 
 <section id="value"><div class="w"><div class="head rv"><h2>Here's What You Get for ₹0</h2></div>
@@ -199,7 +198,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 </form>
 <div id="thanks"><h2 style="color:#21cba8">Application received.</h2><p>We'll review your business and contact you with the next steps.</p>
 <p id="wan" style="display:none;color:#fff;font-weight:700;margin-top:22px">Want a faster reply? Message us on WhatsApp.</p>
-<a id="wa" class="btn wa" href="#" target="_blank" rel="noopener" style="display:none">💬 CHAT WITH US ON WHATSAPP</a></div>
+<a id="wa" class="btn wa" href="#" target="_blank" rel="noopener" style="display:none">CHAT WITH US ON WHATSAPP</a></div>
 </div></section>
 
 <footer><div class="w"><img class="flogo" src="logo.png" alt="Ayrise Scale" width="670" height="362"><p>Ayrise Scale — Independent freelance Meta Ads management. This offer is provided independently and is not sponsored, endorsed, or administered by Meta.</p><p>© 2026 Ayrise Scale. All rights reserved.</p></div></footer>
