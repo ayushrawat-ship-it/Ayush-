@@ -72,6 +72,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .gw::-webkit-scrollbar{display:none}
 .gl{list-style:none;margin:0;padding:0;position:relative;will-change:transform}
 .gl li{height:64px;margin-bottom:10px;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:16px;border:1px solid var(--bd);background:rgba(255,255,255,.03);transition:background .7s ease,border-color .7s ease}
+.gl .ic{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:rgba(33,203,168,.12);border:1px solid rgba(33,203,168,.28);color:#21cba8;flex:none;transition:background .7s ease,color .7s ease}.gl .ic svg{width:22px;height:22px;display:block}.gl li.on .ic{background:rgba(33,203,168,.28);color:#7fe3cd}
 .gl li div{min-width:0}.gl li b{display:block;font-size:.95rem}
 .gl li small{display:block;color:var(--mu);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gl li.on{background:linear-gradient(90deg,rgba(33,203,168,.22),rgba(20,168,138,.22));border-color:rgba(33,203,168,.6)}
@@ -93,16 +94,16 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 <div class="mc">No long-term contract • No management fee for 7 days • Limited onboarding capacity</div>
 <p class="note" style="margin-top:22px;max-width:460px">Built for businesses that are ready to generate more qualified leads, inquiries, bookings, or sales.</p></div>
 <aside class="gpn"><div class="lb"><i></i>ADS FOR EVERY GOAL</div><div class="gw"><ul class="gl" id="gl">
-<li><div><b>Awareness</b><small>Get your brand in front of the right people</small></div></li>
-<li><div><b>Traffic</b><small>Send more visitors to your website</small></div></li>
-<li><div><b>Engagement</b><small>Grow likes, comments, shares and messages</small></div></li>
-<li><div><b>Leads</b><small>Collect qualified inquiries from your ads</small></div></li>
-<li><div><b>Bookings</b><small>Fill your calendar with appointments</small></div></li>
-<li><div><b>Calls</b><small>Make your phone ring with ready buyers</small></div></li>
-<li><div><b>WhatsApp Inquiries</b><small>Start chats with interested customers</small></div></li>
-<li><div><b>Sales</b><small>Turn ad clicks into orders and revenue</small></div></li>
-<li><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
-<li><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></span><div><b>Awareness</b><small>Get your brand in front of the right people</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></span><div><b>Traffic</b><small>Send more visitors to your website</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg></span><div><b>Engagement</b><small>Grow likes, comments, shares and messages</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></span><div><b>Leads</b><small>Collect qualified inquiries from your ads</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2l4-4"/></svg></span><div><b>Bookings</b><small>Fill your calendar with appointments</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.7 4.2l-2.2 1.4a11 11 0 0 0 5.4 5.4l1.4-2.2L19 14.5V18a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>Calls</b><small>Make your phone ring with ready buyers</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 17v3.5l4-3.5"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><div><b>WhatsApp Inquiries</b><small>Start chats with interested customers</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11h10.2l2-8H6.3"/></svg></span><div><b>Sales</b><small>Turn ad clicks into orders and revenue</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M12 7.5v6M9.5 11.5l2.5 2.5l2.5-2.5"/><path d="M11 18.5h2"/></svg></span><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
+<li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.400-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
 </ul></div></aside></div></header>
 
 <section id="value"><div class="w"><div class="head rv"><h2>Here's What You Get for ₹0</h2></div>
