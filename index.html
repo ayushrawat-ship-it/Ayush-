@@ -213,14 +213,23 @@ const stk=document.getElementById('stk');addEventListener('scroll',()=>{stk.styl
 const WA_NUMBER='917017078648';
 const SHEET_URL='https://script.google.com/macros/s/AKfycbz8I80wTSjXutMh0F3iuGpkSex6ExsKKXQd5JNC6QxkC24AyhGbfOsp7PqFaGANOL8/exec';
 const f=document.getElementById('f');
+const T0=Date.now();
 f.onsubmit=e=>{e.preventDefault();let ok=true;
 f.querySelectorAll('[required]').forEach(el=>{const err=el.closest('div')?.querySelector('.err');let bad=!el.value.trim();if(el.type==='email')bad=bad||!/^\S+@\S+\.\S+$/.test(el.value);if(err)err.classList.toggle('on',bad);if(bad)ok=false});
 if(!ok)return;
+const fe=document.getElementById('ferr'),fail=m=>{fe.textContent=m;fe.classList.add('on')};
+const fv=n=>(f.elements[n]?.value||'').trim(),digits=fv('phone').replace(/\D/g,'');
+if(digits.length<8||digits.length>15){fail('Please enter a valid phone number.');return}
+if(/https?:\/\/|www\./i.test(fv('name')+' '+fv('biz')+' '+fv('about')+' '+fv('budget'))){fail('Please remove links from your message.');return}
+let last=0;try{last=+localStorage.getItem('as_last')||0}catch(_){}
+if(Date.now()-last<300000){fail('You have already applied. We will contact you soon.');return}
+if(fv('company')||Date.now()-T0<3000){f.style.display='none';document.getElementById('thanks').classList.add('on');return}
 if(!SHEET_URL){const er=document.getElementById('ferr');er.textContent='The form is not connected yet.';er.classList.add('on');return}
 const btn=f.querySelector('button[type=submit]'),ferr=document.getElementById('ferr'),label=btn.textContent;
 btn.disabled=true;btn.textContent='SENDING…';ferr.classList.remove('on');
-const d=new URLSearchParams(new FormData(f));
+const d=new URLSearchParams(new FormData(f));d.set('elapsed',String(Date.now()-T0));
 fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
+try{localStorage.setItem('as_last',String(Date.now()))}catch(_){}
 f.style.display='none';document.getElementById('thanks').classList.add('on');
 const num=String(WA_NUMBER).replace(/\D/g,'');if(num){const who=(d.get('name')||'').trim(),biz=(d.get('biz')||'').trim(),a=document.getElementById('wa');
 a.href='https://wa.me/'+num+'?text='+encodeURIComponent('Hi Ayrise Scale, I am '+who+(biz?' from '+biz:'')+'. I just applied for the free 7-day Meta Ads trial.');
