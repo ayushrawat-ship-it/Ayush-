@@ -220,7 +220,8 @@ if(!ok)return;
 const fe=document.getElementById('ferr'),fail=m=>{fe.textContent=m;fe.classList.add('on')};
 const fv=n=>(f.elements[n]?.value||'').trim(),digits=fv('phone').replace(/\D/g,'');
 if(digits.length<8||digits.length>15){fail('Please enter a valid phone number.');return}
-if(/https?:\/\/|www\./i.test(fv('name')+' '+fv('biz')+' '+fv('about')+' '+fv('budget'))){fail('Please remove links from your message.');return}
+const L=/https?:\/\/|www\./gi;
+if(L.test(fv('name')+' '+fv('biz')+' '+fv('budget'))||(fv('about').match(L)||[]).length>2){fail('Please remove extra links from your message.');return}
 let last=0;try{last=+localStorage.getItem('as_last')||0}catch(_){}
 if(Date.now()-last<300000){fail('You have already applied. We will contact you soon.');return}
 if(fv('company')||Date.now()-T0<3000){f.style.display='none';document.getElementById('thanks').classList.add('on');return}
