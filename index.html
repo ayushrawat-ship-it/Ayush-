@@ -34,6 +34,11 @@ nav .w{display:flex;align-items:center;justify-content:space-between;height:74px
 details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 18px;margin-bottom:10px}summary{cursor:pointer;font-weight:700}details p{margin:10px 0 0}
 form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--bd);background:#fff;color:var(--tx);font:inherit}input:focus,select:focus,textarea:focus{outline:2px solid var(--blue)}
 .c2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rowc{display:flex;flex-wrap:wrap;gap:8px}.rowc label{position:relative;display:inline-flex;align-items:center;font-size:.85rem;color:var(--mu);border:1px solid var(--bd);border-radius:99px;padding:8px 16px;cursor:pointer;user-select:none;transition:color .15s,border-color .15s,background .15s}.rowc label:hover{color:var(--tx);border-color:rgba(8,48,40,.4)}.rowc input{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}.rowc input:focus{outline:0}.rowc label:has(input:checked){color:#04201a;background:var(--blue);border-color:var(--blue);font-weight:700}.rowc label:has(input:focus-visible){box-shadow:0 0 0 2px var(--bg),0 0 0 4px rgba(33,203,168,.6)}
+#apply{background:linear-gradient(180deg,rgba(33,203,168,.12),rgba(33,203,168,.04));border-top:1px solid rgba(33,203,168,.4)}
+#f,#thanks.on{background:#fff;padding:30px;border-radius:22px;border:1px solid rgba(33,203,168,.5);border-top:5px solid var(--blue);box-shadow:0 30px 70px -30px rgba(12,138,115,.55),0 0 0 6px rgba(33,203,168,.10)}
+#f input:not([type=radio]),#f select,#f textarea{background:#f8fbfa}
+#f input:focus,#f select:focus,#f textarea:focus{background:#fff}
+@media(max-width:640px){#f,#thanks.on{padding:20px}}
 .err{color:#dc2626;font-size:.78rem;display:none}.err.on{display:block}
 #thanks{display:none;text-align:center;padding:40px 10px}#thanks.on{display:block}
 .btn.wa{background:#25d366;color:#04201a;box-shadow:0 10px 30px -10px rgba(37,211,102,.6);text-decoration:none}
@@ -176,7 +181,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);background:var(--bg2)
 <div class="mc">₹0 management fee for 7 days • Advertising spend separate • Subject to eligibility</div></div></section>
 
 <section id="apply"><div class="w" style="max-width:640px">
-<div class="head rv"><h2>See If Your Business Qualifies</h2></div>
+<div class="head rv"><h2>See If Your Business Qualifies</h2><p>Fill in the form below to apply for your free 7-day trial.</p></div>
 <form id="f" class="rv" novalidate>
 <div class="c2"><div><input name="name" placeholder="Full Name" required><span class="err">Please enter your name.</span></div><div><input name="biz" placeholder="Business Name" required><span class="err">Please enter your business name.</span></div></div>
 <div class="c2"><div><input name="email" type="email" placeholder="Email" required><span class="err">Please enter a valid email.</span></div><div><input name="phone" placeholder="Phone / WhatsApp" required><span class="err">Please enter a phone number.</span></div></div>
