@@ -15,6 +15,7 @@ p{margin:0 0 1em;color:var(--mu)}a{color:inherit;text-decoration:none}.w{max-wid
 .btn{display:inline-block;padding:15px 28px;border-radius:14px;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));color:#04201a;border:0;cursor:pointer;font-size:.95rem;box-shadow:0 10px 30px -10px rgba(33,203,168,.5);transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}.btn.o{color:var(--tx);background:transparent;border:1px solid var(--bd);box-shadow:none}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:24px;backdrop-filter:blur(10px)}
+.topbar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 14px;background:var(--blue);color:#04201a;font-size:.88rem;font-weight:700;text-align:center;padding:9px 16px}.topbar a{background:#04201a;color:#fff;font-weight:700;font-size:.8rem;padding:4px 12px;border-radius:99px;white-space:nowrap}
 nav{position:sticky;top:0;z-index:50;background:rgba(6,16,19,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding-top:env(safe-area-inset-top,0)}
 nav .w{display:flex;align-items:center;justify-content:space-between;height:74px}.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:60px;width:auto;display:block}.flogo{height:64px;width:auto;display:block;margin-bottom:14px}
 .hero{padding:64px 0;background:radial-gradient(700px 380px at 85% 0,rgba(33,203,168,.14),transparent 70%)}
@@ -53,6 +54,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 .cs-st{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cs-st div{border-left:2px solid var(--blue);padding-left:10px}
 .cs-st strong{display:block;font-size:1.4rem;color:var(--blue);line-height:1.1}.cs-st span{font-size:.78rem;color:var(--mu)}
 @media(max-width:900px){.cs,.cs:nth-of-type(even){grid-template-columns:1fr}.cs:nth-of-type(even) .cs-shot{order:0}}
+@media(max-width:640px){.topbar{font-size:.8rem;padding:8px 12px}.topbar a{display:none}}
 @media(max-width:900px){.g3,.g2,.steps,.cmp{grid-template-columns:1fr}}
 @media(max-width:640px){.card{padding:22px!important}nav .w{height:64px}.logo img{height:46px}nav .btn{width:auto;padding:9px 14px!important;font-size:.82rem}section{padding:56px 0}.c2{grid-template-columns:1fr}.sticky{display:block}.btn{width:100%;text-align:center}.big{font-size:1.5rem!important}}
 @media(max-width:480px){#offer ~ section div[style*="repeat(3,minmax(0,1fr))"]{grid-template-columns:1fr!important}}
@@ -76,6 +78,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);font-size:.85rem}
 
 </style></head><body>
 <!-- GA/Meta Pixel placeholders: insert gtag('config','G-XXXX') and fbq('init','XXXX') here -->
+<div class="topbar"><span>Free 7-day Meta Ads management trial for select businesses. Ad spend separate.</span><a href="#apply">Check eligibility</a></div>
 <nav><div class="w"><a class="logo" href="#home" aria-label="Ayrise Scale"><img src="logo.png" alt="Ayrise Scale" width="670" height="362"></a><a class="btn" style="padding:9px 18px" href="#apply">Claim My Free Trial →</a></div></nav>
 
 <header class="hero" id="home"><div class="w hg"><div class="hl">
