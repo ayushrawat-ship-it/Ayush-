@@ -203,6 +203,10 @@ const stk=document.getElementById('stk');addEventListener('scroll',()=>{stk.styl
 // Paste your Google Apps Script web app URL between the quotes (see form-to-sheet.gs).
 // Your WhatsApp number with country code, digits only (for example 919876543210). Leave empty to hide the WhatsApp button.
 const WA_NUMBER='917017078648';
+try{history.scrollRestoration='manual'}catch(_){}
+if(location.hash){try{history.replaceState(null,'',location.pathname+location.search)}catch(_){}}
+addEventListener('load',()=>scrollTo({top:0,behavior:'instant'}));
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const t=document.getElementById(a.getAttribute('href').slice(1));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:'smooth'})});
 const SHEET_URL='https://script.google.com/macros/s/AKfycbz8I80wTSjXutMh0F3iuGpkSex6ExsKKXQd5JNC6QxkC24AyhGbfOsp7PqFaGANOL8/exec';
 const f=document.getElementById('f');
 const T0=Date.now();
