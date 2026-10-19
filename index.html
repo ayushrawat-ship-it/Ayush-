@@ -1,4 +1,20 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="logo.png?v=3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1124192082328540');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1124192082328540&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <title>Get 1 Week of Meta Ads Management Free</title>
 <meta name="description" content="Get a professionally managed 7-day Meta Ads trial with ₹0 management fee. Real campaign, real data, no long-term commitment.">
 <meta property="og:title" content="Get 1 Week of Meta Ads Management Free"><meta property="og:description" content="7-day trial. ₹0 management fee. Ad spend separate. Apply to check eligibility.">
@@ -82,7 +98,6 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);background:var(--bg2)
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
 
 </style></head><body>
-<!-- GA/Meta Pixel placeholders: insert gtag('config','G-XXXX') and fbq('init','XXXX') here -->
 <div class="topbar"><span>Free 7-day Meta Ads management trial for select businesses. Ad spend separate.</span><a href="#apply">Check eligibility</a></div>
 <nav><div class="w"><a class="logo" href="#home" aria-label="Ayrise Scale"><img src="logo.png?v=3" alt="Ayrise Scale" width="670" height="362"></a><a class="btn" style="padding:9px 18px" href="#apply">Claim My Free Trial →</a></div></nav>
 
@@ -235,12 +250,12 @@ btn.disabled=true;btn.textContent='SENDING…';ferr.classList.remove('on');
 const d=new URLSearchParams(new FormData(f));d.set('elapsed',String(Date.now()-T0));
 fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
 try{localStorage.setItem('as_last',String(Date.now()))}catch(_){}
+try{if(window.fbq)fbq('track','Lead')}catch(_){}
 f.style.display='none';document.getElementById('thanks').classList.add('on');
 const num=String(WA_NUMBER).replace(/\D/g,'');if(num){const who=(d.get('name')||'').trim(),biz=(d.get('biz')||'').trim(),a=document.getElementById('wa');
 a.href='https://wa.me/'+num+'?text='+encodeURIComponent('Hi Ayrise Scale, I am '+who+(biz?' from '+biz:'')+'. I just applied for the free 7-day Meta Ads trial.');
 a.style.display='inline-block';document.getElementById('wan').style.display='block'}
 }).catch(()=>{btn.disabled=false;btn.textContent=label;ferr.textContent='Sorry, something went wrong. Please check your connection and try again.';ferr.classList.add('on')});
-// Analytics placeholders: gtag('event','generate_lead'); fbq('track','Lead');
 };
 (function(){const el=document.querySelector('.gw'),ul=document.getElementById('gl');if(!el||!ul)return;
 const items=[...ul.children],N=items.length;
