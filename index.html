@@ -1,4 +1,12 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="logo.png?v=3"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FR3CB8TNXW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FR3CB8TNXW');
+</script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -251,6 +259,7 @@ const d=new URLSearchParams(new FormData(f));d.set('elapsed',String(Date.now()-T
 fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
 try{localStorage.setItem('as_last',String(Date.now()))}catch(_){}
 try{if(window.fbq)fbq('track','Lead')}catch(_){}
+try{gtag('event','generate_lead')}catch(_){}
 f.style.display='none';document.getElementById('thanks').classList.add('on');
 const num=String(WA_NUMBER).replace(/\D/g,'');if(num){const who=(d.get('name')||'').trim(),biz=(d.get('biz')||'').trim(),a=document.getElementById('wa');
 a.href='https://wa.me/'+num+'?text='+encodeURIComponent('Hi Ayrise Scale, I am '+who+(biz?' from '+biz:'')+'. I just applied for the free 7-day Meta Ads trial.');
