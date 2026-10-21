@@ -241,6 +241,12 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');i
 const SHEET_URL='https://script.google.com/macros/s/AKfycbz8I80wTSjXutMh0F3iuGpkSex6ExsKKXQd5JNC6QxkC24AyhGbfOsp7PqFaGANOL8/exec';
 const f=document.getElementById('f');
 const T0=Date.now();
+const TRK=(()=>{const K='as_trk',P=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];let o={};try{o=JSON.parse(sessionStorage.getItem(K)||'{}')}catch(_){}
+try{const q=new URLSearchParams(location.search);P.forEach(k=>{if(q.get(k))o[k]=q.get(k).slice(0,200)});
+if(!o.landing){o.landing=location.pathname;let r='';try{r=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,''):''}catch(_){}
+if(r&&r!==location.hostname)o.referrer=r}
+if(!o.utm_source){o.utm_source=o.fbclid?'facebook':o.gclid?'google':o.referrer||'direct';if(!o.utm_medium)o.utm_medium=o.fbclid||o.gclid?'paid':o.referrer?'referral':'none'}
+sessionStorage.setItem(K,JSON.stringify(o))}catch(_){}return o})();
 f.onsubmit=e=>{e.preventDefault();let ok=true;
 f.querySelectorAll('[required]').forEach(el=>{const err=el.closest('div')?.querySelector('.err');let bad=!el.value.trim();if(el.type==='email')bad=bad||!/^\S+@\S+\.\S+$/.test(el.value);if(err)err.classList.toggle('on',bad);if(bad)ok=false});
 if(!ok)return;
@@ -255,7 +261,7 @@ if(fv('company')||Date.now()-T0<3000){f.style.display='none';document.getElement
 if(!SHEET_URL){const er=document.getElementById('ferr');er.textContent='The form is not connected yet.';er.classList.add('on');return}
 const btn=f.querySelector('button[type=submit]'),ferr=document.getElementById('ferr'),label=btn.textContent;
 btn.disabled=true;btn.textContent='SENDING…';ferr.classList.remove('on');
-const d=new URLSearchParams(new FormData(f));d.set('elapsed',String(Date.now()-T0));
+const d=new URLSearchParams(new FormData(f));d.set('elapsed',String(Date.now()-T0));Object.keys(TRK).forEach(k=>d.set(k,TRK[k]));
 fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d}).then(()=>{
 try{localStorage.setItem('as_last',String(Date.now()))}catch(_){}
 try{if(window.fbq)fbq('track','Lead')}catch(_){}
