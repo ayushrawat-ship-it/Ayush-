@@ -71,6 +71,13 @@ form{display:grid;gap:12px}input,select,textarea{width:100%;padding:13px 14px;bo
 footer{padding:40px 0 100px;border-top:1px solid var(--bd);background:var(--bg2);font-size:.85rem}
 .soc{display:flex;gap:20px;margin:0 0 14px}.soc a{display:inline-flex;align-items:center;gap:6px;color:var(--tx);font-weight:600;transition:color .15s}.soc a img{width:24px;height:24px;display:block;border-radius:50%}.soc a:hover{color:var(--tt)}
 .rv{opacity:0;transform:translateY(16px);transition:.6s}.rv.in{opacity:1;transform:none}
+/* Intro video */
+#video .vd{max-width:760px;margin:0 auto}.vd.v{max-width:340px}
+.vbox{position:relative;border-radius:18px;overflow:hidden;background:#0b1f1c;border:1px solid var(--bd);box-shadow:0 18px 50px rgba(8,48,40,.16);aspect-ratio:16/9}.vd.v .vbox{aspect-ratio:9/16}
+.vbox video,.vbox iframe,.vbox img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;display:block}
+.vplay{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;border:0;background:var(--blue);cursor:pointer;box-shadow:0 8px 28px rgba(33,203,168,.5)}
+.vplay:after{content:"";position:absolute;left:30px;top:23px;border-left:24px solid #06201a;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.vplay:focus-visible{outline:3px solid #06201a;outline-offset:3px}
 /* Meta Ads results / case studies */
 .cs{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;margin-bottom:20px;padding:22px}
 .cs:nth-of-type(even){grid-template-columns:1fr 1.25fr}.cs:nth-of-type(even) .cs-shot{order:2}
@@ -131,6 +138,10 @@ footer{padding:40px 0 100px;border-top:1px solid var(--bd);background:var(--bg2)
 <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M12 7.5v6M9.5 11.5l2.5 2.5l2.5-2.5"/><path d="M11 18.5h2"/></svg></span><div><b>App Installs</b><small>Drive downloads from the right audience</small></div></li>
 <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.400-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><b>Store Visits</b><small>Bring nearby customers through your door</small></div></li>
 </ul></div></aside></div></header>
+
+<section id="video" hidden><div class="w"><div class="head rv" style="margin-bottom:24px"><h2>Want Meta Ads, but Hesitant to Pay an Agency First?</h2><p>Watch this short video, then try our free 7-day trial.</p></div>
+<div class="vd rv" id="vd"><div class="vbox" id="vbox"></div></div>
+<p style="text-align:center;margin:26px 0 0"><a class="btn" href="#apply">START MY FREE TRIAL →</a></p></div></section>
 
 <section id="value"><div class="w"><div class="head rv"><h2>Here's What You Get for ₹0</h2></div>
 <div class="g3">
@@ -236,6 +247,20 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');i
 const SHEET_URL='https://script.google.com/macros/s/AKfycbz8I80wTSjXutMh0F3iuGpkSex6ExsKKXQd5JNC6QxkC24AyhGbfOsp7PqFaGANOL8/exec';
 const f=document.getElementById('f');
 const T0=Date.now();
+
+/* Intro video: set VIDEO_SRC to a YouTube/Vimeo link or an .mp4 path. Empty keeps the section hidden. */
+const VIDEO_SRC='',VIDEO_POSTER='',VIDEO_VERTICAL=false;
+(()=>{if(!VIDEO_SRC)return;const box=document.getElementById('vbox'),sec=document.getElementById('video');
+if(VIDEO_VERTICAL)document.getElementById('vd').classList.add('v');
+const track=()=>{try{if(window.fbq)fbq('trackCustom','VideoPlay')}catch(_){}try{gtag('event','video_start')}catch(_){}};
+let yt=VIDEO_SRC.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{11})/),vm=VIDEO_SRC.match(/vimeo\.com\/(\d+)/);
+const facade=(thumb,embed)=>{if(thumb){const i=new Image();i.alt='';i.src=thumb;box.appendChild(i)}
+const b=document.createElement('button');b.className='vplay';b.type='button';b.setAttribute('aria-label','Play video');
+b.onclick=()=>{track();box.innerHTML='<iframe src="'+embed+'" title="Ayrise Scale intro video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'};box.appendChild(b)};
+if(yt)facade('https://i.ytimg.com/vi/'+yt[1]+'/hqdefault.jpg','https://www.youtube-nocookie.com/embed/'+yt[1]+'?autoplay=1&rel=0&playsinline=1');
+else if(vm)facade(VIDEO_POSTER,'https://player.vimeo.com/video/'+vm[1]+'?autoplay=1');
+else{const v=document.createElement('video');v.src=VIDEO_SRC;v.controls=true;v.playsInline=true;v.preload='metadata';if(VIDEO_POSTER)v.poster=VIDEO_POSTER;v.addEventListener('play',function f(){track();v.removeEventListener('play',f)});box.appendChild(v)}
+sec.hidden=false})();
 const TRK=(()=>{const K='as_trk',P=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];let o={};try{o=JSON.parse(sessionStorage.getItem(K)||'{}')}catch(_){}
 try{const q=new URLSearchParams(location.search);P.forEach(k=>{if(q.get(k))o[k]=q.get(k).slice(0,200)});
 if(!o.landing){o.landing=location.pathname;let r='';try{r=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,''):''}catch(_){}
